@@ -57,7 +57,7 @@ Contact me: +7(951)612-18-31 / @sodmian
 Далее, обратим внимание на следующее:
 
 ❌ `<TaskProgress :progress="progress"/>`\
-✔️ `<ProgressBar :progress="getprogress"/>`
+✔️ `<ProgressBar :progress="getProgress"/>`
 
 ❌ `<TaskForm @create-new-task="createNewTask($event)"/>`\
 ✔️ `<Form @submit="handleFormSubmit"/>`
@@ -83,9 +83,10 @@ Contact me: +7(951)612-18-31 / @sodmian
 
 ![](https://skrinshoter.ru/s/120724/Sbckybvd.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2017:01:20.jpg)
 
-- Для начала этих методов здесь быть не должно в принципе
+- Управление состоянием переносим в Vuex
 - Задача (Task) - сущность, а сущности не помешает уникальный идентификатор и проверка на не пустой `title`. C этим нам поможет `Symbol` и дефолтное значение `title`
-- Не помешает проверка на существование индекса
+- В качестве атрибута методу `taskToggle` лучше передать ссылку на объект, нежели индекс объекта в массиве
+- Метод `createNewTask` лучше переименовать в `addTask`, атрибутом передать объект task, вместо строкового значения атрибута `taskTitle`
 
 Секции `style` укажем тип используемого препроцессора, глобальные стили перенесем на другой слой приложения, сброс дефолтных значений организуем через подключение файла `reset.css`, цветам, шрифтам и т.д. зададим переменные и вынесем в отдельный файл, подключим библиотеку атомарных классов, например: Tailwind
 
@@ -103,7 +104,7 @@ Contact me: +7(951)612-18-31 / @sodmian
 ```
 
 ❌ `<div class="task-delete-button" :class="taskClass" @click.stop="$emit('task-delete', task)">x</div>`\
-✔️ `<Button class="task__btn task__btn_destroy" @click.stop="handleDestroy"><Svg name="close" /></Button>`
+✔️ `<Button class="task__btn task__btn_destroy" @click="handleDestroy"><Svg name="close" /></Button>`
 
 ❌ `<span class="task-text" :class="taskClass">{{ task.title }}</span>`\
 ✔️ `<span class="task__title">{{ task.title }}</span>`
