@@ -42,17 +42,19 @@ Contact me: +7(951)612-18-31 / @sodmian
 
 ![](https://skrinshoter.ru/s/120724/5VvtJspQ.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2008:51:41.jpg)
 
-Добавим ESLint и Prettier, чтобы поддерживать код в чистоте. Уберем тег `div` с атрибутом `id="app"`, т.к. атрибут `id` с таким значением уже есть в шаблоне `index.html`. Все компоненты внутри тега `div` заменим виджетом, но об этом чуть позже
+Добавим ESLint и Prettier, чтобы поддерживать код в чистоте. Значение атрибута `id` тега `div` лишено смысла и дублирует аналогичное значение атрибута в шаблоне `index.html`. Поступим следующим образом, [изучим разделение слоев приложения](https://feature-sliced.design/ru/docs) и перенесем компоненты в отдельный слой `widgets`:
+
+```
+<template>
+  <TaskWidget />
+</template>
+```
 
 ![](https://skrinshoter.ru/s/120724/JJyMZRRB.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2008:53:58.jpg)
 
 Внедрим методологию БЭМ
 
 ![](https://skrinshoter.ru/s/120724/dxoG9JBE.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2008:56:11.jpg)
-
-[Изучим разделение слоев приложения](https://feature-sliced.design/ru/docs), вынесем в слой `widgets` наш таск-менеджер и подключим виджет в компоненте
-
-![](https://skrinshoter.ru/s/120724/GMTBvvL5.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2008:58:55.jpg)
 
 Далее, обратим внимание на следующее:
 
