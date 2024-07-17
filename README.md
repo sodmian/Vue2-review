@@ -113,7 +113,7 @@ Contact me: +7(951)612-18-31 / @sodmian
 
 ![](https://skrinshoter.ru/s/120724/UGza0t4W.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2018:28:10.jpg)
 
-Нужно учесть, что вывод значения `task.title` может привести к проблеме, т.к. task может оказаться строкой
+Нужно учесть, что вывод значения `task.title` может привести к проблеме, т.к. входной параметр `task` может оказаться строкой
 
 ![](https://skrinshoter.ru/s/120724/taLDCHHv.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2017:41:57.jpg)
 
