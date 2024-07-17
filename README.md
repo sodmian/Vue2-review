@@ -44,6 +44,19 @@ Contact me: +7(951)612-18-31 / @sodmian
 
 ![](https://skrinshoter.ru/s/120724/JJyMZRRB.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2008:53:58.jpg)
 
+Далее, обратим внимание на следующее:
+
+❌ `<TaskProgress :progress="progress"/>`\
+✔️ `<ProgressBar :progress="getProgress"/>`
+
+❌ `<TaskForm @create-new-task="createNewTask($event)"/>`\
+✔️ `<Form @submit="handleFormSubmit"/>`
+
+❌ `<TaskGrid @task-delete="taskDelete($event)" @task-toggle="taskToggle($event)" />`\
+✔️ `<GridList :data-source="tasks" />`
+
+Директивам `@task-delete` и `@task-toggle` здесь не место, компонент должен быть ответственен только за представление элементов грида.
+
 Добавим ESLint и Prettier, чтобы поддерживать код в чистоте. Значение атрибута `id` тега `div` лишено смысла и дублирует аналогичное значение атрибута в шаблоне `index.html`. Поступим следующим образом, [изучим разделение слоев приложения](https://feature-sliced.design/ru/docs) и перенесем компоненты в отдельный слой `widgets`:
 
 ```
@@ -57,19 +70,6 @@ Contact me: +7(951)612-18-31 / @sodmian
 Внедрим методологию БЭМ
 
 ![](https://skrinshoter.ru/s/120724/k6QV7nKW.jpg?download=1&name=%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82-12-07-2024%2016:21:33.jpg)
-
-Далее, обратим внимание на следующее:
-
-❌ `<TaskProgress :progress="progress"/>`\
-✔️ `<ProgressBar :progress="getProgress"/>`
-
-❌ `<TaskForm @create-new-task="createNewTask($event)"/>`\
-✔️ `<Form @submit="handleFormSubmit"/>`
-
-❌ `<TaskGrid @task-delete="taskDelete($event)" @task-toggle="taskToggle($event)" />`\
-✔️ `<GridList :data-source="tasks" />`
-
-Директивам `@task-delete` и `@task-toggle` здесь не место, компонент должен быть ответственен только за представление элементов грида
 
 Заменим данный блок кода на Vuex action `initTasks`, перенесем в него инициализацию данных
 
